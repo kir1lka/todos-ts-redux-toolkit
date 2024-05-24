@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 //redux
 import { useAppDispatch } from "../hooks";
-// import { addTodo } from "../store/todoSlice";
+import { addTodo } from "../store/todoSlice";
 
 interface InputFormProps {
   setNotification: (str: string) => void;
@@ -21,16 +21,16 @@ export const InputForm: React.FC<InputFormProps> = ({ setNotification }) => {
   const dispatch = useAppDispatch();
 
   const handleAddTodo = () => {
-    // setError(false);
-    // if (value.trim().length >= 5) {
-    //   dispatch(addTodo(value));
-    //   inputRef.current?.focus();
-    //   setValue("");
-    //   setError(false);
-    // } else {
-    //   setNotification("Надо ввести как минимум 5 символов!");
-    //   setError(true);
-    // }
+    setError(false);
+    if (value.trim().length >= 5) {
+      dispatch(addTodo(value));
+      inputRef.current?.focus();
+      setValue("");
+      setError(false);
+    } else {
+      setNotification("Надо ввести как минимум 5 символов!");
+      setError(true);
+    }
   };
 
   return (

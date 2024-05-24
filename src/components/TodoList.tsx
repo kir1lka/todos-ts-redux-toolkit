@@ -1,16 +1,8 @@
 import { useAppSelector } from "../hooks";
-import { useEffect } from "react";
 import { TodoItem } from "./TodoItem";
-import { useAppDispatch } from "../hooks";
-import { fetchTodos } from "../store/todoSlice";
 
 export const TodoList: React.FC = () => {
   const todos = useAppSelector((state) => state.todos.list);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchTodos());
-  }, []);
 
   return (
     <>

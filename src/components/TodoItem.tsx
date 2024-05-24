@@ -1,6 +1,5 @@
 import { useAppDispatch } from "../hooks";
-// import { todoRemove } from "../store/todoSlice";
-// import { toggleTodo } from "../store/todoSlice";
+import { todoRemove, toggleTodo } from "../store/todoSlice";
 import { Todo } from "../type/Todo";
 
 interface TodoItemProps {
@@ -15,7 +14,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
       <input
         type="checkbox"
         checked={todo.completed}
-        // onChange={() => dispatch(toggleTodo(todo.id))}
+        onChange={() => dispatch(toggleTodo(todo.id))}
         className="mr-3 w-5 h-5 accent-purple-600  bg-gray-100 border-gray-300 rounded focus:ring-purple-500"
       />
       <div
@@ -25,7 +24,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
         {todo.title}
       </div>
       <button
-        // onClick={() => dispatch(todoRemove(todo.id))}
+        onClick={() => dispatch(todoRemove(todo.id))}
         className="py-1 px-2.5  rounded-md font-semibold bg-red-500 text-white hover:bg-red-600 hover:text-white  transition-all duration-200 "
       >
         &times;
